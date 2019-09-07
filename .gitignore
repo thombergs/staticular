@@ -1,4 +1,4 @@
-/build/
+**/build/
 **/.local/
-/.gradle/
-/.idea/
+**/.gradle/
+**/.idea/
