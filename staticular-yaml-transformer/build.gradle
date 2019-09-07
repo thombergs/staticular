@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':staticular-processor')
+    implementation 'org.yaml:snakeyaml:1.25'
+}
+

@@ -1,0 +1,40 @@
+dependencyManagement {
+    imports {
+        mavenBom("com.fasterxml.jackson:jackson-bom:2.9.0")
+    }
+}
+
+dependencies {
+    implementation project(':staticular-processor')
+
+    // JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.10.7'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.10.7'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.10.7'
+
+    // Bouncycastle
+    implementation 'org.bouncycastle:bcprov-jdk16:1.46'
+
+    implementation 'io.github.openfeign:feign-core:10.4.0'
+    implementation 'io.github.openfeign:feign-jackson:10.4.0'
+    implementation 'io.github.openfeign:feign-slf4j:10.4.0'
+
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+    testImplementation 'com.github.tomakehurst:wiremock:2.24.1'
+    testRuntimeOnly 'commons-logging:commons-logging:1.2' // <-- needed by wiremock
+}
+
+test {
+    useJUnitPlatform {
+        excludeTags 'remote'
+    }
+}
+
+task remoteTest(type: Test) {
+    systemProperty "STATICULAR_GITHUB_APP_PRIVATE_KEY_FILE", System.getProperty("STATICULAR_GITHUB_APP_PRIVATE_KEY_FILE")
+    systemProperty "STATICULAR_GITHUB_APP_ID", System.getProperty("STATICULAR_GITHUB_APP_ID")
+    useJUnitPlatform {
+        includeTags 'remote'
+    }
+}

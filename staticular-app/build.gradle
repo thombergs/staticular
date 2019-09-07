@@ -1,0 +1,13 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+}
+
+dependencies {
+
+    implementation project(':staticular-github-app')
+    implementation project(':staticular-processor')
+    implementation project(':staticular-yaml-transformer')
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

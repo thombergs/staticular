@@ -1,0 +1,4 @@
+include 'staticular-app'
+include 'staticular-processor'
+include 'staticular-github-app'
+include 'staticular-yaml-transformer'
