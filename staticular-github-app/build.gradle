@@ -31,9 +31,19 @@ test {
     }
 }
 
+/**
+ * Runs the tests that connect to the real GitHub API. The tests require a GitHub App
+ * to be set up and need some properties as input. The tests will only run successfully
+ * if all system properties are set correctly (see below).
+ */
 task remoteTest(type: Test) {
+
+    // path to the private key of the github app
     systemProperty "STATICULAR_GITHUB_APP_PRIVATE_KEY_FILE", System.getProperty("STATICULAR_GITHUB_APP_PRIVATE_KEY_FILE")
+
+    // ID of the github app
     systemProperty "STATICULAR_GITHUB_APP_ID", System.getProperty("STATICULAR_GITHUB_APP_ID")
+
     useJUnitPlatform {
         includeTags 'remote'
     }
