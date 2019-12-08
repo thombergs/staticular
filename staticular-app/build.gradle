@@ -4,10 +4,7 @@ plugins {
 
 dependencies {
 
-    implementation project(':staticular-github-app')
     implementation project(':staticular-processor')
-
-    runtimeOnly project(':plugins:staticular-yaml-plugin')
 
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

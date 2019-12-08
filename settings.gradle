@@ -1,4 +1,4 @@
 include 'staticular-app'
 include 'staticular-processor'
-include 'staticular-github-app'
+include 'plugins:staticular-github-plugin'
 include 'plugins:staticular-yaml-plugin'

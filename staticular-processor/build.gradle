@@ -16,6 +16,7 @@ dependencies {
 
     // plugins
     runtimeOnly project(':plugins:staticular-yaml-plugin')
+    runtimeOnly project(':plugins:staticular-github-plugin')
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.assertj:assertj-core:3.13.2'
