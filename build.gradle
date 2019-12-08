@@ -8,7 +8,7 @@ subprojects {
     apply plugin: 'java-library'
     apply plugin: 'io.spring.dependency-management'
 
-    group = 'io.reflectoring'
+    group = 'io.reflectoring.staticular'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '11'
 

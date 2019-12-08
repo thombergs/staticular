@@ -3,9 +3,9 @@ package io.reflectoring.staticular.yaml;
 import java.io.ByteArrayInputStream;
 import java.util.Map;
 
-import io.reflectoring.staticular.processor.Field;
-import io.reflectoring.staticular.processor.StaticFile;
-import io.reflectoring.staticular.processor.UserContent;
+import io.reflectoring.staticular.spi.model.Field;
+import io.reflectoring.staticular.spi.model.StaticFile;
+import io.reflectoring.staticular.spi.model.UserContent;
 import org.junit.jupiter.api.Test;
 import org.yaml.snakeyaml.Yaml;
 import static org.assertj.core.api.Assertions.*;
@@ -18,7 +18,7 @@ class YamlTransformerTest {
 				.addField(new Field("name", "bob"))
 				.addField(new Field("text", "this is a user-generated comment"));
 
-		YamlTransformer yamlTransformer = new YamlTransformer();
+		YamlTransformerPlugin yamlTransformer = new YamlTransformerPlugin();
 
 		StaticFile staticFile = yamlTransformer.transformContent(userContent);
 

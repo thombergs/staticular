@@ -1,4 +1,4 @@
-package io.reflectoring.staticular.processor;
+package io.reflectoring.staticular.spi.model;
 
 import lombok.Value;
 
