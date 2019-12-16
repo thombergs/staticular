@@ -21,6 +21,11 @@ dependencies {
 
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    testCompileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
+
     testImplementation 'com.github.tomakehurst:wiremock:2.24.1'
     testRuntimeOnly 'commons-logging:commons-logging:1.2' // <-- needed by wiremock
 }
@@ -36,15 +41,10 @@ test {
  * to be set up and need some properties as input. The tests will only run successfully
  * if all system properties are set correctly (see below).
  */
-task remoteTest(type: Test) {
-
-    // path to the private key of the github app
-    systemProperty "STATICULAR_GITHUB_APP_PRIVATE_KEY_FILE", System.getProperty("STATICULAR_GITHUB_APP_PRIVATE_KEY_FILE")
-
-    // ID of the github app
-    systemProperty "STATICULAR_GITHUB_APP_ID", System.getProperty("STATICULAR_GITHUB_APP_ID")
-
+task integrationTest(type: Test) {
     useJUnitPlatform {
         includeTags 'remote'
     }
 }
+
+

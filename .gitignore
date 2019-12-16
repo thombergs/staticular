@@ -2,3 +2,5 @@
 **/.local/
 **/.gradle/
 **/.idea/
+**/remote-test.properties
+**/*.pem

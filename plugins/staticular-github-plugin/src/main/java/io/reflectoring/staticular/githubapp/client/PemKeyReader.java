@@ -1,4 +1,4 @@
-package io.reflectoring.staticular.githubapp;
+package io.reflectoring.staticular.githubapp.client;
 
 import java.io.IOException;
 import java.io.StringReader;

@@ -1,5 +1,6 @@
 package io.reflectoring.staticular.githubapp;
 
+import io.reflectoring.staticular.githubapp.client.PemKeyReader;
 import java.security.KeyPair;
 
 import org.junit.jupiter.api.Test;

@@ -9,14 +9,14 @@ import feign.Logger.Level;
 import feign.jackson.JacksonDecoder;
 import feign.slf4j.Slf4jLogger;
 
-class ClientFactory {
+public class ClientFactory {
 
 	private final ObjectMapper objectMapper;
 
-	public ClientFactory(ObjectMapper objectMapper) {
+	public ClientFactory() {
+		this.objectMapper = new ObjectMapper();
 		objectMapper.registerModule(new JavaTimeModule());
 		objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-		this.objectMapper = objectMapper;
 	}
 
 	public <T> T createClient(Class<T> clientClass, String baseUrl) {

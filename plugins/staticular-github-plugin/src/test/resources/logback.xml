@@ -10,6 +10,7 @@
         <appender-ref ref="STDOUT" />
     </root>
 
-    <logger name="io.reflectoring.staticular.githubapp.client.GetInstallationToken" level="DEBUG" />
+    <logger name="io.reflectoring.staticular.githubapp.client.api.GetInstallationToken" level="DEBUG" />
+    <logger name="io.reflectoring.staticular.githubapp.client.api.GetReference" level="DEBUG" />
 
 </configuration>

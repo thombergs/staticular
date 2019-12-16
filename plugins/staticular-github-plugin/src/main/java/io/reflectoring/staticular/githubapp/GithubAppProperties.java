@@ -1,5 +1,6 @@
 package io.reflectoring.staticular.githubapp;
 
+import io.reflectoring.staticular.githubapp.client.PemKeyReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.PrivateKey;

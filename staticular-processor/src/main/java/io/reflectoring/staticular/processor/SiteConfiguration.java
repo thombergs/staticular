@@ -19,6 +19,7 @@ public class SiteConfiguration {
       ContentPublisherPlugin.class);
 
   public ContentTransformerPlugin transformer() {
+    // TODO: load plugin from configuration instead of always loading the first
     return transformerServiceLoader.stream()
         .filter(transformer -> transformer.get().id().equals(YAML_TRANSFORMER_ID))
         .findFirst()
@@ -26,6 +27,7 @@ public class SiteConfiguration {
   }
 
   public ContentPublisherPlugin publisher() {
+    // TODO: load plugin from configuration instead of always loading the first
     return contentPublisherServiceLoader.stream()
         .filter(publisher -> publisher.get().id().equals(GITHUB_PUBLISHER_ID))
         .findFirst()

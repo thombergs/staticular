@@ -1,7 +1,7 @@
-package io.reflectoring.staticular.githubapp;
+package io.reflectoring.staticular.githubapp.client;
 
+import io.reflectoring.staticular.githubapp.client.api.model.GithubJwt;
 import java.security.Key;
-import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -10,13 +10,21 @@ import io.jsonwebtoken.Jwts;
 
 public class JWTGenerator {
 
-	public String generateJWT(Key githubAppPrivateKey, String githubAppId) {
-		return Jwts.builder()
+	/**
+	 * Creates a JWT for communicating with GitHub. The JWT is used only to get an
+	 * installation token from GitHub which in turn is used to interact with GitHub
+	 * in the name of a GitHub App.
+	 * @param githubAppPrivateKey the private key of the GitHub installation.
+	 * @param githubAppId ID of the GitHub application.
+	 * @return
+	 */
+	public GithubJwt generateJWT(Key githubAppPrivateKey, String githubAppId) {
+		return new GithubJwt(Jwts.builder()
 				.setIssuer(githubAppId)
 				.setIssuedAt(now())
 				.setExpiration(tenMinutesFromNow())
 				.signWith(githubAppPrivateKey)
-				.compact();
+				.compact());
 	}
 
 	private Date tenMinutesFromNow() {

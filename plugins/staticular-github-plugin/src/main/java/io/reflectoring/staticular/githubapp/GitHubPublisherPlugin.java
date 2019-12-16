@@ -1,5 +1,7 @@
 package io.reflectoring.staticular.githubapp;
 
+import io.reflectoring.staticular.githubapp.client.api.model.GithubJwt;
+import io.reflectoring.staticular.githubapp.client.JWTGenerator;
 import io.reflectoring.staticular.spi.PluginId;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -35,7 +37,7 @@ class GitHubPublisherPlugin implements ContentPublisherPlugin {
 							"  },\n" +
 							"  \"content\": \"bXkgbmV3IGZpbGUgY29udGVudHM=\"\n" +
 							"}"))
-					.header("Authorization", generateJsonWebToken())
+					.header("Authorization", generateJsonWebToken().getValue())
 					.uri(URI.create("https://api.github.com/repos/thombergs/staticman-test/contents/comments/comment.yml"))
 					.build();
 
@@ -49,7 +51,7 @@ class GitHubPublisherPlugin implements ContentPublisherPlugin {
 
 	}
 
-	private String generateJsonWebToken() {
+	private GithubJwt generateJsonWebToken() {
 		return jwtGenerator.generateJWT(githubAppProperties.getGitHubAppPrivateKey(), githubAppProperties.getGithubAppId());
 	}
 
